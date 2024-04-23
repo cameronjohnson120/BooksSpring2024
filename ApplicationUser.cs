@@ -1,0 +1,22 @@
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BooksSpring2024
+{
+    public class ApplicationUser : IdentityUser 
+    {
+        [Required]
+        public string Name { get; set; }
+        public string? StreetAddress { get; set; }
+        public string? City { get; set; }
+        public string? PostalCode { get; set; }
+        public string? State { get; set; }
+        //public string? Country { get; set; }
+
+
+        [NotMapped] //not saved within the database - use this tag
+        public string? RoleName { get; set; }
+
+    }
+}

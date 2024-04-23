@@ -1,0 +1,27 @@
+﻿@model List<Book>
+@* index for the home view *@
+
+    <div class="row">
+        @foreach(var eachBook in Model)
+         {
+            <div class="col-3" mb-5>
+                <div class="card col-12 m-2 p-2 border-2 shadow border-rounded text-center" style="min-height:100%">
+                    <img class="card-img-top" src="@eachBook.ImgURL"/>
+                    <h3 class="card-title text-center text-uppercase">@eachBook.BookTitle</h3>
+                   
+                    
+                    <div class="card-body">
+                        <p class="card-text text-center">
+                            @eachBook.Author
+                            <br />
+
+                            @eachBook.Price 
+                        </p>
+                    </div>
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@eachBook.BookID" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+         }
+</div>
+
+
