@@ -164,11 +164,13 @@ namespace BooksSpring2024.Areas.Admin.Controllers
 
             //StripeConfiguration.ApiKey = "sk_test_51P8kZWKSBDlyY37zZ2It2nHgXkKHFTkGhpkAYs2FQy9p6YFgfipaurf0WJhsddyplX4QUZfpoAENgRv5FmUAq1r300Qfz8M9Ab";
 
+            var domain = Request.Scheme + "//" + Request.Host.Value + "/";
+
             var options = new Stripe.Checkout.SessionCreateOptions
             {
-                SuccessUrl = "https://localhost:7032/" + $"customer/cart/orderconfirmation?id={shoppingCartVM.Order.OrderID}",
+                SuccessUrl = domain + $"customer/cart/orderconfirmation?id={shoppingCartVM.Order.OrderID}",
 
-                CancelUrl = "https://localhost:7032/" + "customer/cart/index",
+                CancelUrl = domain + "customer/cart/index",
 
                 LineItems = new List<Stripe.Checkout.SessionLineItemOptions>(),
             // {
